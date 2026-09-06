@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.HelloController" prefHeight="650" prefWidth="900" style="-fx-background-color: #D3D3D3;">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Gestión de Torneo Deportivo" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <!-- TextFields básicos -->
+        <Label text="Nombre Completo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNombre" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="250" promptText="Mínimo 5 caracteres"/>
+
+        <Label text="Edad:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtEdad" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="250" promptText="Entre 15 y 60 años"/>
+
+        <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtTelefono" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="250" promptText="Solo números"/>
+
+        <!-- ComboBoxes -->
+        <Label text="Género:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbGenero" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="250" promptText="Seleccione..."/>
+
+        <Label text="Categoría:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbCategoria" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="250" promptText="Seleccione..."/>
+
+        <Label text="Modalidad:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbModalidad" GridPane.rowIndex="5" GridPane.columnIndex="1" prefWidth="250" promptText="Seleccione..."/>
+
+        <Label text="Disciplina:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbDisciplina" GridPane.rowIndex="6" GridPane.columnIndex="1" prefWidth="250" promptText="Seleccione..."/>
+
+        <!-- CheckBoxes (Características) -->
+        <Label text="Características:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="1">
+            <CheckBox fx:id="chkFederado" text="Federado"/>
+            <CheckBox fx:id="chkExperiencia" text="Exp. Previa"/>
+            <CheckBox fx:id="chkFinesSemana" text="Fines de semana"/>
+            <CheckBox fx:id="chkSeguro" text="Seguro deportivo"/>
+        </HBox>
+
+        <!-- Botones -->
+        <HBox spacing="10" GridPane.rowIndex="8" GridPane.columnIndex="1">
+            <Button text="Agregar" onAction="#agregarParticipante"/>
+            <Button text="Editar" onAction="#editarParticipante"/>
+            <Button text="Eliminar" onAction="#eliminarParticipante"/>
+            <Button text="Limpiar Campos" onAction="#limpiarCampos"/>
+        </HBox>
+    </GridPane>
+
+    <!-- Tabla -->
+    <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNombre" text="Nombre"/>
+            <TableColumn fx:id="colEdad" text="Edad"/>
+            <TableColumn fx:id="colCategoria" text="Categoría"/>
+            <TableColumn fx:id="colModalidad" text="Modalidad"/>
+            <TableColumn fx:id="colDisciplina" text="Disciplina"/>
+            <TableColumn fx:id="colCaracteristicas" text="Características" prefWidth="250"/>
+            <TableColumn fx:id="colEstado" text="Estado"/>
+        </columns>
+    </TableView>
+</VBox>
