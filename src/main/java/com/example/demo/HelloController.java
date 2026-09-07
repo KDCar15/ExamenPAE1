@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.model.Participante;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,6 +32,8 @@ public class HelloController implements Initializable {
     @FXML private TableView<Participante> tabla;
     @FXML private TableColumn<Participante, String> colNombre;
     @FXML private TableColumn<Participante, String> colEdad;
+    @FXML private TableColumn<Participante, String> colGenero;
+    @FXML private TableColumn<Participante, String> colTelefono;
     @FXML private TableColumn<Participante, String> colCategoria;
     @FXML private TableColumn<Participante, String> colModalidad;
     @FXML private TableColumn<Participante, String> colDisciplina;
@@ -48,13 +52,50 @@ public class HelloController implements Initializable {
         cbDisciplina.setItems(FXCollections.observableArrayList("Fútbol", "Baloncesto", "Voleibol", "Atletismo", "Natación", "Tenis"));
 
         // Configurar Columnas
-        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
-        colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        colModalidad.setCellValueFactory(new PropertyValueFactory<>("modalidad"));
-        colDisciplina.setCellValueFactory(new PropertyValueFactory<>("disciplina"));
-        colCaracteristicas.setCellValueFactory(new PropertyValueFactory<>("caracteristicas"));
-        colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        colNombre.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getNombre())
+        );
+
+        colEdad.setCellValueFactory(
+                cellData ->
+                    new SimpleStringProperty(cellData.getValue().getEdad())
+        );
+
+        colGenero.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getGenero())
+        );
+
+        colTelefono.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getTelefono())
+        );
+
+        colCategoria.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getCategoria())
+        );
+
+        colModalidad.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getModalidad())
+        );
+
+        colDisciplina.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getDisciplina())
+        );
+
+        colCaracteristicas.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getCaracteristicas())
+        );
+
+        colEstado.setCellValueFactory(
+                cellData ->
+                        new SimpleStringProperty(cellData.getValue().getEstado())
+        );
 
         tabla.setItems(lista);
 

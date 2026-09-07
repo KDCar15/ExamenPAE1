@@ -67,6 +67,8 @@
         <columns>
             <TableColumn fx:id="colNombre" text="Nombre"/>
             <TableColumn fx:id="colEdad" text="Edad"/>
+            <TableColumn fx:id="colGenero" text="Género"/>
+            <TableColumn fx:id="colTelefono" text="Telefono"/>
             <TableColumn fx:id="colCategoria" text="Categoría"/>
             <TableColumn fx:id="colModalidad" text="Modalidad"/>
             <TableColumn fx:id="colDisciplina" text="Disciplina"/>
